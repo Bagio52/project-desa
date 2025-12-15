@@ -1,0 +1,314 @@
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+
+  /* Global Colors */
+  --background-color: #ffffff;
+  --default-color: #444444;
+  --heading-color: #384046;
+  --accent-color: #3498db;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  /* Nav Menu Colors */
+  --nav-color: #444444;
+  --nav-hover-color: #3498db;
+  --nav-mobile-background-color: #22648f;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #444444;
+  --nav-dropdown-hover-color: #3498db;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# Sidebar admin
+--------------------------------------------------------------*/
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--nav-mobile-background-color);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-family: var(--nav-font);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-header .sidebar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--contrast-color);
+}
+
+#sidebarCollapse {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.sidebar .components {
+  padding: 0;
+}
+
+.sidebar .components li {
+  margin-bottom: 10px;
+}
+
+.sidebar .components li a {
+  color: var(--nav-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar .components li a i {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.sidebar .components li a:hover,
+.sidebar .components li.active a {
+  background: var(--nav-hover-color);
+  color: var(--contrast-color);
+}
+
+form {
+  margin-top: auto; /* Align logout button to the bottom */
+}
+
+form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+form button:hover {
+  background: darken(var(--accent-color), 10%);
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+  overflow: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .mobile-nav-toggle {
+    color: var(--contrast-color);
+    font-size: 1.5rem;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+}
+
+/*--- Section Create Berita ---*/
+.berita {
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.berita .container h2 {
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #ffc107;
+    display: inline-block;
+    margin: 20px auto;
+}
+
+
+.berita .btn-outline-warning {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.berita .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.table thead {
+    background: #f8f9fa;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: 0.2s;
+}
+
+.table td:nth-child(3) {
+    max-width: 350px;
+    white-space: normal;
+}
+
+.btn-outline-warning,
+.btn-danger {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b;
+}
+
+.berita img {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.berita.section {
+    padding: 30px;
+}
+
+/*--- End Section Create Berita ---*/
+
+/*--------------------------------------------------------------
+# Galery admin
+--------------------------------------------------------------*/
+.galery {
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.galery .container h2 {
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #ffc107;
+    display: inline-block;
+    margin: 20px auto;
+}
+
+
+.galery .btn-outline-warning {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.galery .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.table thead {
+    background: #f8f9fa;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: 0.2s;
+}
+
+.table td:nth-child(3) {
+    max-width: 350px;
+    white-space: normal;
+}
+
+.btn-outline-warning,
+.btn-danger {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b;
+}
+
+.galery img {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.galery.section {
+    padding: 30px;
+}
+/*--- End Section Galery ---*/
