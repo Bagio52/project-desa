@@ -157,4 +157,19 @@ class AdminController extends Controller
 
         return redirect()->route('admin.galery.index')->with('success', 'Gambar berhasil diperbarui.');
     }
+
+    public function galeryDestroy($id)
+    {
+        $galery = Galery::findOrFail($id);
+
+        // Hapus file gambar
+        if ($galery->gambar && file_exists(public_path('storage/' . $galery->gambar))) {
+            unlink(public_path('storage/' . $galery->gambar));
+        }
+
+        $galery->delete();
+
+        return redirect()->route('admin.galery.index')
+            ->with('success', 'Galery berhasil dihapus.');
+    }
 }

@@ -27,4 +27,12 @@ class DashboardController extends Controller
     {
         return view('galery');
     }
+
+    public function beritaDetail($id)
+    {
+        $berita = Berita::findOrFail($id);
+        $recentBerita = Berita::where('id', '!=', $id)->latest()->take(4)->get();
+
+        return view('berita-detail', compact('berita', 'recentBerita'));
+    }
 }
