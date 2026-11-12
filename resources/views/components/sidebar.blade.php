@@ -1,39 +1,51 @@
-<nav id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-        <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
-            <span>Ngendrosari</span>
-        </a>
-        <button type="button" id="sidebarCollapse" class="btn btn-light btn-sm d-lg-none">
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </button>
-    </div>
+<nav id="sidebar" class="admin-sidebar">
+    <!-- Sidebar Header / Brand -->
+    <a href="{{ route('admin.dashboard') }}" class="admin-sidebar-brand">
+        <div class="brand-icon">
+            <i class="bi bi-shield-shaded"></i>
+        </div>
+        <div>
+            <h6 class="brand-title">Desa Ngendrosari</h6>
+            <p class="brand-subtitle">Panel Administrasi</p>
+        </div>
+    </a>
 
-    <ul class="list-unstyled components">
-        <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
-            <a href="{{ route('admin.dashboard') }}">
-                <i class="bi bi-speedometer2"></i>
-                Dashboard
-            </a>
-        </li>
-        <li class="{{ request()->is('admin/berita*') ? 'active' : '' }}">
-            <a href="{{ route('admin.berita.index') }}">
-                <i class="bi bi-file-earmark-text"></i>
-                Kelola Berita
-            </a>
-        </li>
-        <li class="{{ request()->is('admin/galery*') ? 'active' : '' }}">
-            <a href="{{ route('admin.galery.index') }}">
-                <i class="bi bi-file-earmark-text"></i>
-                Kelola Galery
+    <!-- Navigation List -->
+    <ul class="admin-nav-list">
+        <li class="admin-nav-header">Menu Utama</li>
+        
+        <li class="admin-nav-item">
+            <a href="{{ route('admin.dashboard') }}" class="admin-nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                <i class="bi bi-grid-1x2-fill"></i>
+                <span>Dashboard</span>
             </a>
         </li>
 
+        <li class="admin-nav-header">Manajemen Konten</li>
+
+        <li class="admin-nav-item">
+            <a href="{{ route('admin.berita.index') }}" class="admin-nav-link {{ request()->is('admin/berita*') ? 'active' : '' }}">
+                <i class="bi bi-newspaper"></i>
+                <span>Kelola Berita</span>
+            </a>
+        </li>
+
+        <li class="admin-nav-item">
+            <a href="{{ route('admin.galery.index') }}" class="admin-nav-link {{ request()->is('admin/galery*') ? 'active' : '' }}">
+                <i class="bi bi-images"></i>
+                <span>Kelola Galeri</span>
+            </a>
+        </li>
     </ul>
-    <form method="POST" action="{{ route('admin.logout') }}">
-        @csrf
-        <button type="submit" class="btn btn-danger w-100 mt-3">
-            <i class="bi bi-box-arrow-left"></i>
-            Logout
-        </button>
-    </form>
+
+    <!-- Logout Action Footer -->
+    <div class="admin-sidebar-footer">
+        <form method="POST" action="{{ route('admin.logout') }}">
+            @csrf
+            <button type="submit" class="btn-admin-logout" onclick="return confirm('Apakah Anda yakin ingin logout?')">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Keluar (Logout)</span>
+            </button>
+        </form>
+    </div>
 </nav>

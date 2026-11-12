@@ -4,16 +4,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('home');
 
 Route::get('/admin/login', [App\Http\Controllers\AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [App\Http\Controllers\AdminAuthController::class, 'login'])->name('admin.login.submit');
 
 // Halaman dashboard admin (harus login)
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+    $totalBerita = \App\Models\Berita::count();
+    $totalGalery = \App\Models\Galery::count();
+    $recentBerita = \App\Models\Berita::latest()->take(5)->get();
+    $recentGalery = \App\Models\Galery::latest()->take(6)->get();
+    return view('admin.dashboard', compact('totalBerita', 'totalGalery', 'recentBerita', 'recentGalery'));
 })->middleware('auth:admin')->name('admin.dashboard');
 
 Route::post('/logout', [App\Http\Controllers\AdminAuthController::class, 'logout'])->name('admin.logout');
@@ -37,3 +39,4 @@ Route::delete('admin/galery/{id}', [AdminController::class, 'galeryDestroy'])->n
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/about', [App\Http\Controllers\DashboardController::class, 'about'])->name('about');
+Route::get('/berita/{id}', [DashboardController::class, 'beritaDetail'])->name('berita.show');

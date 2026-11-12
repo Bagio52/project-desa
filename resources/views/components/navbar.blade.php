@@ -1,10 +1,10 @@
 <nav id="navmenu" class="navmenu">
     <ul>
-        <li><a href="{{ route('dashboard') }}" class="active">Home</a></li>
-        <li><a href="{{ route('dashboard') }}#about">About</a></li>
-        <li><a href="{{ route('dashboard') }}#berita">News</a></li>
-        <li><a href="{{ route('dashboard') }}#galery">Galery</a></li>
-        <li><a href="{{ route('dashboard') }}#contact">Contact</a></li>
+        <li><a href="#hero" class="active">Beranda</a></li>
+        <li><a href="#about">Tentang Desa</a></li>
+        <li><a href="#berita">Berita & Informasi</a></li>
+        <li><a href="#galery">Galeri Foto</a></li>
+        <li><a href="#contact">Kontak & Lokasi</a></li>
     </ul>
     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 </nav>
